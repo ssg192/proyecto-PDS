@@ -199,3 +199,6 @@ function actualizarProgreso(meta) {
     metaTotal.textContent = meta;
   }
 }
+function toggleFAQ(card) {
+  card.classList.toggle('open');
+}
