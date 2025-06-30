@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viaje con esperanza</title>
+  <meta name="description" content="Conecta a donadores con quienes más lo necesitan.">
+  <meta name="keywords" content="donar, donación, comunidad, ropa, ayuda, alimentos, compartir">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="page-loader">
+  <div class="loader-content">
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+  </div>
+</div>
+  <header>
+  <div class="header-container">
+    <h1>Viaje con esperanza</h1>
+    <nav>
+      <a href="#" onclick="mostrarSeccion('inicio'); return false;">Inicio</a>
+      <a href="#" onclick="mostrarSeccion('donar'); return false;">Donar</a>
+      <a href="#" onclick="mostrarSeccion('catalogo'); return false;">Donaciones</a>
+      <a href="#" onclick="mostrarSeccion('grafica'); return false;">Estadísticas</a>
+      <a href="#" onclick="mostrarSeccion('testimonios'); return false;">Testimonios</a>
+      <a href="#" onclick="mostrarSeccion('faq'); return false;">FAQ</a>
+    </nav>
+  </div>
+</header>
+  <main>
+  <section id="inicio" class="active">
+      <h2>Bienvenido a Viaje con esperanza</h2>
+  <!-- Banner inicial sin cambios -->
+  <div class="banner-inicio">
+    <img src=" " alt="Solidaridad" />
+    <div class="banner-texto">
+      <h2>¡Juntos podemos cambiar vidas!</h2>
+      <p>Únete a la comunidad y dona para quienes más lo necesitan.</p>
+    </div>
+  </div>
+
+  <section class="bloque-inicio">
+    <img src="" alt="Quiénes somos" />
+    <div class="texto">
+      <h2>¿Quiénes somos?</h2>
+      <p>En <strong>Viaje con esperanza</strong> creemos en el poder de compartir y ayudar a quienes más lo necesitan. Nuestra misión es conectar a donadores generosos con comunidades y personas que requieren apoyo, facilitando así un bienestar social más amplio y efectivo.</p>
+    </div>
+  </section>
+
+  <section class="bloque-inicio">
+    <div class="texto">
+      <h2>Nuestros Objetivos</h2>
+      <ul>
+        <li><strong>Fomentar la Solidaridad:</strong> Promover el acto de donar como una forma de solidaridad en la comunidad.</li>
+        <li><strong>Aumentar la Conciencia:</strong> Educar sobre la importancia de las donaciones y su impacto positivo en la sociedad.</li>
+        <li><strong>Facilitar la Conexión:</strong> Crear un puente entre donadores y beneficiarios para satisfacer necesidades inmediatas.</li>
+        <li><strong>Impulsar Proyectos Locales:</strong> Apoyar iniciativas locales de desarrollo comunitario a través de donaciones.</li>
+      </ul>
+    </div>
+    <img src=" " alt="Objetivos" />
+  </section>
+
+  <section class="bloque-inicio">
+    <img src=" "  alt="Datos CDMX" />
+    <div class="texto">
+      <h2>Datos sobre Donaciones en la Ciudad de México</h2>
+      <p>La Ciudad de México es un lugar donde la solidaridad y el apoyo mutuo son esenciales. Algunos datos relevantes sobre las donaciones en esta área son:</p>
+      <ul>
+        <li>Más del <strong>50%</strong> de los habitantes de la CDMX han realizado alguna donación en el último año.</li>
+        <li>Las organizaciones benéficas locales reciben un promedio de <strong>$200 millones</strong> anuales en donaciones.</li>
+        <li>Los estilos de vida emergentes han aumentado la demanda de donaciones de ropa y alimentos.</li>
+        <li>Desde 2020, ha habido un incremento del <strong>30%</strong> en donaciones de alimentos debido a la pandemia.</li>
+        <li>Aproximadamente el <strong>40%</strong> de los hogares en la CDMX están en situación de vulnerabilidad, lo que hace vital el apoyo comunitario.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloque-inicio">
+    <div class="texto estadisticas-clave" style="display:flex; justify-content: space-around; gap:20px;">
+      <div>
+        <h3>500+</h3>
+        <p>Donadores activos</p>
+      </div>
+      <div>
+        <h3>1,200</h3>
+        <p>Donaciones entregadas</p>
+      </div>
+      <div>
+        <h3>30</h3>
+        <p>Proyectos apoyados</p>
+      </div>
+    </div>
+    <img src=" " alt="Estadísticas" />
+  </section>
+
+  <section class="bloque-inicio">
+    <div class="texto" style="text-align:center; width: 100%;">
+      <a href="#" onclick="mostrarSeccion('donar'); return false;" class="llamado-accion" style="display:inline-block; padding:12px 25px; background:#059669; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">
+        ¡Quiero ayudar ahora!
+      </a>
+    </div>
+  </section>
+
+</section>
+
+
+    <!-- Sección de Donar -->
+    <section id="donar">
+      <h2>Publica una Donación</h2>
+      <form id="formDonar" autocomplete="off">
+        <input required name="nombre" placeholder="Tu nombre">
+        <input required name="contacto" placeholder="Email o teléfono">
+        <input required name="articulo" placeholder="¿Qué deseas donar?">
+        <textarea required name="descripcion" placeholder="Describe la donación"></textarea>
+        <label>Ubicación aproximada (arrastra el marcador):</label>
+        <div id="mapaDonar" style="width:100%;height:200px;border-radius:10px;margin-bottom:10px"></div>
+        <input type="hidden" name="lat" id="lat">
+        <input type="hidden" name="lng" id="lng">
+        <button type="submit">Publicar donación</button>
+        <div id="dirAprox" style="font-size:1em;color:#059669;margin-top:6px;"></div>
+      </form>
+      <div id="mensajeDonar" style="margin:12px 0 0 0;color:#16a34a;font-weight:bold;display:none"></div>
+    </section>
+
+    <section id="catalogo">
+      <h2>Donaciones</h2>
+      <div class="catalogo-filtros">
+        <select id="filtroEstado" onchange="renderCatalogo()">
+          <option value="pendientes">Sólo pendientes</option>
+          <option value="entregadas">Sólo entregadas</option>
+          <option value="todos">Mostrar todas</option>
+        </select>
+      </div>
+      <div id="catalogoLista"></div>
+    </section>
+
+   <section id="grafica" style="padding: 20px;">
+  <h2>Estadísticas</h2>
+  <p> Cada pequeño gesto cuenta, y esto es un claro reflejo de lo que hemos logrado juntos. 
+     Con cada cifra, estamos un paso más cerca de hacer una gran diferencia.
+     Gracias a todos por su apoyo incondicional. ¡Estamos en esto juntos y cada día es una nueva oportunidad!</p>
+  
+  <!-- Aquí va el indicador de progreso -->
+  <div id="progresoDonaciones" class="progreso-container">
+    <h3>Meta mensual de donaciones</h3>
+    <div class="barra-progreso">
+      <div class="barra-llenada" style="width: 0%;"></div>
+    </div>
+    <p><span id="numActual">0</span> de <span id="metaTotal">100</span> donaciones logradas</p>
+  </div>
+
+  <div id="totalEntregadas"
+       style="margin:10px 0 18px 0;font-size:1.2em;font-weight:600;">
+  </div>
+  <div style="width: 400px; height: 400px; margin:auto">
+    <canvas id="graficaDonaciones"></canvas>
+  </div>
+</section>
+
+    <section id="testimonios">
+      <h2>Testimonios recientes</h2>
+      <div id="testimoniosLista"></div>
+      <h3>Publica tu experiencia</h3>
+      <form id="formTestimonio">
+        <input required name="testimonioNombre" maxlength="30" placeholder="Tu nombre">
+        <textarea required name="testimonioTexto" maxlength="200" placeholder="¿Cómo fue tu experiencia?"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="faq">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-card">
+        <div class="faq-q" onclick="toggleFAQ(this.parentNode)">¿Qué tipo de donaciones puedo publicar?</div>
+        <div class="faq-a">Puedes donar ropa, alimentos, útiles escolares, juguetes, artículos del hogar en buen estado, etc.</div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-q" onclick="toggleFAQ(this.parentNode)">¿Cómo puedo hacer una donación?</div>
+        <div class="faq-a">Puedes utilizar nuestro formulario en línea para publicar tu donación y coordinar la entrega.</div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="scripts.js"></script>
+  <script src="map.js"></script>
+  <script src="js/chart.min.js"></script>
+</body>
+</html>

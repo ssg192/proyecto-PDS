@@ -1,0 +1,491 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+header {
+    background: #16a34a;
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background: #059669;
+}
+
+main > section {
+    display: none;
+    padding: 30px 20px;
+    max-width: 950px;
+    margin: auto;
+}
+
+section.active {
+    display: block;
+}
+
+section h2 {
+    color: #059669;
+}
+
+.galeria-imagenes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 24px 0 10px 0;
+}
+
+.galeria-imagenes img {
+    width: 220px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0001;
+    border: 2px solid #e0e7ee;
+    background: #eee;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+}
+
+button {
+    background: #22c55e;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.catalogo-filtros {
+    margin-bottom: 18px;
+}
+
+.catalogo-filtros select {
+    width: auto;
+    display: inline-block;
+}
+
+.card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0001;
+    margin-bottom: 12px;
+    transition: .2s;
+    position: relative;
+}
+
+.entregada {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.mapa-peq {
+    width: 100%;
+    height: 110px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.testimonio {
+    background: #f1fdf7;
+    border-left: 5px solid #16a34a;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.testimonio-nombre {
+    font-weight: bold;
+    color: #16a34a;
+}
+
+.faq-card {
+    border-radius: 10px;
+    margin: 10px 0;
+    background: #fff;
+    box-shadow: 0 2px 8px #0001;
+    padding: 0;
+    overflow: hidden;
+}
+
+.faq-q {
+    font-weight: bold;
+    background: #22c55e;
+    color: #fff;
+    cursor: pointer;
+    padding: 16px 18px;
+}
+
+.faq-a {
+    padding: 8px 18px;
+    display: none;
+}
+
+.faq-card.open .faq-a {
+    display: block;
+}
+
+.faq-card.open .faq-q {
+    background: #16a34a;
+}
+
+.faq-card:not(.open) .faq-q:after {
+    content: ' ▶';
+    float: right;
+}
+
+.faq-card.open .faq-q:after {
+    content: ' ▼';
+    float: right;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    nav {
+        justify-content: center;
+    }
+    
+    nav a {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+#page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0fdf4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+#page-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-content {
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #16a34a;
+}
+
+.loader-content p {
+  font-size: 1.2em;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #bbf7d0;
+  border-top-color: #16a34a;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.banner-inicio {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.banner-inicio img {
+  width: 100%;
+  display: block;
+  height: 300px;
+  object-fit: cover;
+}
+
+.banner-texto {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: white;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.estadisticas-clave {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 25px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.estadisticas-clave > div {
+  text-align: center;
+}
+
+.estadisticas-clave h3 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #059669;
+}
+
+.estadisticas-clave p {
+  margin: 6px 0 0 0;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.llamado-accion {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.llamado-accion a {
+  display: inline-block;
+  background: #059669;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.llamado-accion a:hover {
+  background: #047857;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .estadisticas-clave {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+body {
+    background: #fdfbf7;
+}
+
+main > section {
+  display: none;
+  padding: 30px 20px;
+  max-width: 950px;
+  margin: auto;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+main > section.active {
+  display: block;
+  opacity: 1;
+}
+
+button, nav a {
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+button:hover, nav a:hover {
+  transform: scale(1.05);
+  background-color: #16a34a;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.banner-contenido {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 50%;
+  animation: slideInLeft 1s ease forwards;
+  opacity: 0;
+}
+
+.banner-texto {
+  width: 50%;
+  animation: slideInRight 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+.progreso-container {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.barra-progreso {
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.barra-llenada {
+  background-color: #10b981;
+  height: 100%;
+  width: 0%;
+  transition: width 0.6s ease;
+  border-radius: 12px 0 0 12px;
+}
+
+/* Bloques suaves para sección inicio */
+.bloque-inicio {
+  background: #f9f9f9;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bloque-inicio img {
+  flex: 1 1 250px;
+  max-width: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bloque-inicio > .texto {
+  flex: 2 1 400px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+  .bloque-inicio {
+    flex-direction: column;
+  }
+  .bloque-inicio img,
+  .bloque-inicio > .texto {
+    flex: unset;
+    max-width: 100%;
+  }
+}
+
