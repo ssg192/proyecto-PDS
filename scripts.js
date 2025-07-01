@@ -72,7 +72,7 @@ function renderCatalogo(){
     lista.innerHTML = filtered.map((d, idx) => `
         <div class="card${d.entregada ? ' entregada' : ''}">
             <strong>${d.articulo}</strong> — ${d.descripcion}<br>
-            <span style="font-size:0.93em">Donador: ${d.nombre} <br>Contacto: ${d.contacto}</span>
+            <span style="font-size:0.93em">Solicitante: ${d.nombre} <br>Contacto: ${d.contacto}</span>
             ${d.direccion ? `<div style="font-size:0.93em;color:#666;margin-bottom:4px;"><b>Zona:</b> ${d.direccion}</div>` : ''}
             <div class="mapa-peq" id="catmapa${idx}"></div>
             ${!d.entregada ? "<span style='color:#b91c1c'>Pendiente</span>" : "✔️ Entregada"}
