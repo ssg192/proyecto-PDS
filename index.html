@@ -23,7 +23,7 @@
     <h1>Viaje con esperanza</h1>
     <nav>
       <a href="#" onclick="mostrarSeccion('inicio'); return false;">Inicio</a>
-      <a href="#" onclick="mostrarSeccion('donar'); return false;">Donar</a>
+      <a href="#" onclick="mostrarSeccion('donar'); return false;">Solicitar</a>
       <a href="#" onclick="mostrarSeccion('catalogo'); return false;">Donaciones</a>
       <a href="#" onclick="mostrarSeccion('grafica'); return false;">Estadísticas</a>
       <a href="#" onclick="mostrarSeccion('testimonios'); return false;">Testimonios</a>
@@ -110,17 +110,17 @@
 
     <!-- Sección de Donar -->
     <section id="donar">
-      <h2>Publica una Donación</h2>
+      <h2>Solicita tu donación</h2>
       <form id="formDonar" autocomplete="off">
         <input required name="nombre" placeholder="Tu nombre">
         <input required name="contacto" placeholder="Email o teléfono">
-        <input required name="articulo" placeholder="¿Qué deseas donar?">
-        <textarea required name="descripcion" placeholder="Describe la donación"></textarea>
+        <input required name="articulo" placeholder="¿Qué requieres que se done?">
+        <textarea required name="descripcion" placeholder="Describe"></textarea>
         <label>Ubicación aproximada (arrastra el marcador):</label>
         <div id="mapaDonar" style="width:100%;height:200px;border-radius:10px;margin-bottom:10px"></div>
         <input type="hidden" name="lat" id="lat">
         <input type="hidden" name="lng" id="lng">
-        <button type="submit">Publicar donación</button>
+        <button type="submit">Publicar requerimiento</button>
         <div id="dirAprox" style="font-size:1em;color:#059669;margin-top:6px;"></div>
       </form>
       <div id="mensajeDonar" style="margin:12px 0 0 0;color:#16a34a;font-weight:bold;display:none"></div>
@@ -179,7 +179,7 @@
         <div class="faq-a">Puedes donar ropa, alimentos, útiles escolares, juguetes, artículos del hogar en buen estado, etc.</div>
       </div>
       <div class="faq-card">
-        <div class="faq-q" onclick="toggleFAQ(this.parentNode)">¿Cómo puedo hacer una donación?</div>
+        <div class="faq-q" onclick="toggleFAQ(this.parentNode)">¿Cómo puedo pedir una donación?</div>
         <div class="faq-a">Puedes utilizar nuestro formulario en línea para publicar tu donación y coordinar la entrega.</div>
       </div>
     </section>
